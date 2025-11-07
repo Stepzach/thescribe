@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Minimalist Website</title>
+    
+    <meta name="description" content="A simple, minimal, and animated website template.">
+    
+    <meta name="keywords" content="website, template, minimal, simple, animated">
+    
+    <meta name="author" content="Your Name">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourwebsite.com/">
+    <meta property="og:title" content="Minimalist Website">
+    <meta property="og:description" content="A simple, minimal, and animated website template.">
+    <meta property="og:image" content="https://www.yourwebsite.com/image.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.yourwebsite.com/">
+    <meta property="twitter:title" content="Minimalist Website">
+    <meta property="twitter:description" content="A simple, minimal, and animated website template.">
+    <meta property="twitter:image" content="https://www.yourwebsite.com/image.jpg">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#" class="logo"><!--<img src="https://leeds.ams3.digitaloceanspaces.com/media/cnXVwRB2eQoHJAYt8Z8MlLNq4W1Kjb5e2212bxkF.jpg" style="height:70px;width:120px; object-fit:cover; object-position:left;">-->The Scribe</a>
+            
+            <div class="nav-desktop">
+                <button class="btn btn-primary">Newsletter</button>
+            </div>
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="menu-overlay" id="mobile-menu">
+        <button class="menu-close" id="menu-close" aria-label="Close navigation menu">&times;</button>
+        <div class="menu-content">
+            <nav>
+                <ul>
+                    <li><a href="#">Archives</a></li>
+                    <li><a href="#">About</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="menu-newsletter">
+                <h3>Subscribe to the newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-secondary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        
+
+        <section class="container content-section">
+            <h2>Main Content Area</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            
+            <div class="footer-about">
+                <h4>About Us</h4>
+                <p>We are a minimal design studio creating beautiful and simple digital experiences. Welcome to our space.</p>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="mailto:hello@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Join the List</h4>
+                <form>
+                    <input type="email" placeholder="your.email@example.com" required>
+                    <button type="submit" class="btn btn-secondary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-copyright">
+            <p>&copy; 2025 Minimal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
+
+<style>
+
+:root {
+    --color-primary: #c586b3;
+    --color-secondary: #5d995d;
+    --color-background: #fcfdf7;
+    --color-text: #333333;
+    --color-text-light: #777777;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --container-width: 1140px;
+    --header-height: 65px;
+    --transition-fast: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-menu: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    background: var(--color-background);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity var(--transition-fast);
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ==================
+   2. UTILITY CLASSES
+   ================== */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    border: solid 2px #ccc;
+}
+
+.btn-primary:hover {
+    opacity: 0.8;
+}
+
+.btn-secondary {
+    background: var(--color-secondary);
+    color: white;
+    border: solid 2px #ccc;
+    
+}
+
+.btn-secondary:hover {
+    opacity: 0.8;
+}
+
+/* ==================
+   3. ANIMATIONS
+   ================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================
+   4. HEADER
+   ================== */
+header {
+    height: var(--header-height);
+    background: var(--color-secondary);
+   border-bottom: solid 2px #ccc;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    animation: fadeIn 1s ease-out;
+}
+
+header nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: whitesmoke;
+}
+
+.nav-desktop {
+    display: block;
+}
+
+/* ==================
+   5. MOBILE MENU
+   ================== */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 35px;
+    height: 5px;
+    background: whitesmoke;
+    border-radius:4px;
+    margin: 5px 0;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Hamburger to 'X' animation */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background: var(--color-secondary);
+}
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background: var(--color-secondary);
+}
+
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-primary);
+    color: white;
+    z-index: 1000;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* Animation: Hidden by default */
+    opacity: 0;
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: all var(--transition-menu);
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.menu-close {
+    position: absolute;
+    top: 0.9rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: whitesmoke;
+    font-size: 4rem;
+    cursor: pointer;
+}
+
+.menu-content {
+    text-align: center;
+}
+
+.menu-content nav ul li {
+    margin: 2rem 0;
+    opacity: 0; /* For staggered animation */
+    animation: menuFadeIn 0.5s ease-out forwards;
+}
+
+/* Staggered animation delay */
+.menu-overlay.active .menu-content nav ul li:nth-child(1) { animation-delay: 0.3s; }
+.menu-overlay.active .menu-content nav ul li:nth-child(2) { animation-delay: 0.5s; }
+.menu-overlay.active .menu-content nav ul li:nth-child(3) { animation-delay: 0.7s; }
+
+.menu-content nav a {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: white;
+}
+
+.menu-newsletter {
+    margin-top: 4rem;
+    opacity: 0; /* For animation */
+    animation: menuFadeIn 0.5s ease-out forwards;
+}
+
+.menu-overlay.active .menu-newsletter {
+    animation-delay: 0.9s;
+}
+
+.menu-newsletter h3 {
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.menu-newsletter form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.menu-newsletter input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ccc;
+    color: var(--color-secondary);
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-family: var(--font-family);
+}
+.menu-newsletter input::placeholder {
+    color: #ccc;
+}
+
+/* ==================
+   6. MAIN CONTENT
+   ================== */
+main {
+    animation: fadeIn 1s ease-out;
+}
+
+.hero {
+    min-height: calc(70vh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    animation: fadeSlideUp 0.8s ease-out;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 1rem 0 2rem 0;
+    animation: fadeSlideUp 0.8s ease-out 0.2s;
+    animation-fill-mode: backwards; /* Start animation from invisible */
+}
+
+.hero .btn {
+    animation: fadeSlideUp 0.8s ease-out 0.4s;
+    animation-fill-mode: backwards;
+}
+
+.content-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+/* ==================
+   7. FOOTER
+   ================== */
+footer {
+    background: var(--color-primary);
+    color: white;
+    padding: 4rem 0 2rem 0;
+    font-size: 0.9rem;
+    
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: 3rem;
+}
+
+.footer-about h4,
+.footer-social h4,
+.footer-newsletter h4 {
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-about p {
+    max-width: 350px;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 1.25rem;
+}
+
+.footer-newsletter form {
+    display: flex;
+}
+
+.footer-newsletter input {
+    flex-grow: 1;
+    padding: 0.75rem;
+   
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ccc;
+    color: var(--color-secondary);
+    border-radius: 5px 0 0 5px;
+    font-family: var(--font-family);
+}
+
+.footer-newsletter button {
+    border-radius: 0 5px 5px 0;
+     border-left: none;
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1.5px solid #ccc;
+    font-size: 0.8rem;
+}
+
+/* ==================
+   8. RESPONSIVE (Mobile)
+   ================== */
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-about p {
+        margin: 0 auto;
+    }
+
+    .footer-social {
+        margin: 1.5rem 0;
+    }
+
+    .footer-newsletter form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Get all the necessary elements
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuClose = document.getElementById('menu-close');
+    const menuLinks = mobileMenu.querySelectorAll('a'); 
+ 
+    // Function to toggle the menu
+    function toggleMenu() {
+        // Toggle the 'active' class on the menu and the button
+        mobileMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+
+        // Toggle body scroll
+        if (mobileMenu.classList.contains('active')) {
+            // Disable scroll
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Enable scroll
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Event listener for the hamburger button
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Event listener for the close button
+    menuClose.addEventListener('click', toggleMenu);
+
+    // Event listener for all links inside the menu
+    // (This closes the menu when a link is clicked)
+    menuLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+    });
+});
+</script>
