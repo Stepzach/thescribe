@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Minimalist Website</title>
+    <title>The Scribe</title>
     
     <meta name="description" content="A simple, minimal, and animated website template.">
     
@@ -39,10 +40,12 @@
 
     <header>
         <nav class="container">
-            <a href="#" class="logo"><!--<img src="https://leeds.ams3.digitaloceanspaces.com/media/cnXVwRB2eQoHJAYt8Z8MlLNq4W1Kjb5e2212bxkF.jpg" style="height:70px;width:120px; object-fit:cover; object-position:left;">-->The Scribe</a>
-            
+            <a href="#" class="logo"><img src="https://github.com/Stepzach/thescribe/blob/main/IMG_3996.PNG?raw=true" style="height:60px;width:110px; object-fit:cover; object-position:left;"></a>
+             
             <div class="nav-desktop">
-                <button class="btn btn-primary">Newsletter</button>
+             <button class="btn" style="background:transparent; color: white; padding-right:5px;">Archive</button>
+            <button  class="btn" style="background:transparent; color: white;">About</button>
+                <button class="btn btn-primary">Join our Newsletter</button>
             </div>
             
             <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu">
@@ -54,7 +57,7 @@
     </header>
 
     <div class="menu-overlay" id="mobile-menu">
-        <button class="menu-close" id="menu-close" aria-label="Close navigation menu">&times;</button>
+       
         <div class="menu-content">
             <nav>
                 <ul>
@@ -64,13 +67,7 @@
                     
                 </ul>
             </nav>
-            <div class="menu-newsletter">
-                <h3>Subscribe to the newsletter</h3>
-                <form>
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit" class="btn btn-secondary">Subscribe</button>
-                </form>
-            </div>
+           
         </div>
     </div>
 
@@ -78,16 +75,41 @@
         
 
         <section class="container content-section">
-            <h2>Welcome to the Scribe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            
-              <div class="closed-zines-buttons">
-              
-                <a href="#" aria-label="Archives">Archives:<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQQ3zlBsmKgFY4yF8iUErFOxrLFn4Bpc9R3mI_zOPBVSDgfcah_FUdFk4ezBtPKaBa1cQ&usqp=CAU" style="width:160px;  height:160px; border: solid 2px green; margin-left:auto; margin-right:auto;"></a>
-                <a href="#" aria-label="About" >About: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQQ3zlBsmKgFY4yF8iUErFOxrLFn4Bpc9R3mI_zOPBVSDgfcah_FUdFk4ezBtPKaBa1cQ&usqp=CAU" style="width:160px;  height:160px; border: solid 2px green; margin-left:auto; margin-right:auto;"></a>
-               
-            </div>
-            
+ <div class="responsive-layout">
+
+   <div class="responsive-layout">
+
+    <div class="latest-column">
+        <h2>Latest:</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL2kzuUAlBvlMgDWwO6Kq_J9E8zzw_GWcq2A&s" style="margin-left:auto; margin-right:auto; width:80%;">
+        <p>October 2025 Zine. <span style="color:blue"><u>View PDF</u></span></p>
+        <div class="menu-newsletter">
+            <h3>Get monthly zines straight to your inbox:</h3>
+            <form>
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-secondary">Join Newsletter</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="flex-container"> <div class="closed-zines-buttons">
+            <a href="#" aria-label="Archives" class="zine-link">
+                Archives:
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQQ3zlBsmKgFY4yF8iUErFOxrLFn4Bpc9R3mI_zOPBVSDgfcah_FUdFk4ezBtPKaBa1cQ&usqp=CAU" 
+                     alt="Archives thumbnail" 
+                     class="zine-thumbnail">
+            </a>
+            <a href="#" aria-label="About" class="zine-link">
+                About: 
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQQ3zlBsmKgFY4yF8iUErFOxrLFn4Bpc9R3mI_zOPBVSDgfcah_FUdFk4ezBtPKaBa1cQ&usqp=CAU" 
+                     alt="About thumbnail" 
+                     class="zine-thumbnail">
+            </a>
+        </div>
+    </div>
+
+</div>
+        
         </section>
     </main>
 
@@ -100,7 +122,7 @@
             </div>
 
             <div class="footer-social">
-                <h4>Follow Us</h4>
+                <h4>Socials</h4>
                 <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                 <a href="mailto:hello@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
@@ -203,7 +225,7 @@ img {
 }
 
 .btn-primary {
-    background: var(--color-primary);
+    background: #5d995d;
     color: white;
     border: solid 2px #ccc;
 }
@@ -258,7 +280,7 @@ img {
    ================== */
 header {
     height: var(--header-height);
-    background: var(--color-secondary);
+    background: #4d8498;
    border-bottom: solid 2px #ccc;
     display: flex;
     align-items: center;
@@ -299,7 +321,7 @@ header nav.container {
     display: block;
     width: 35px;
     height: 5px;
-    background: whitesmoke;
+    background: #2c4a56;
     border-radius:4px;
     margin: 5px 0;
     transition: all 0.4s ease-in-out;
@@ -307,21 +329,21 @@ header nav.container {
 
 /* Hamburger to 'X' animation */
 .menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-    background: var(--color-secondary);
+    transform: translateY(10px) rotate(45deg);
+    background: whitesmoke;
 }
 .menu-toggle.active .bar:nth-child(2) {
     opacity: 0;
 }
 .menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-    background: var(--color-secondary);
+    transform: translateY(-10px) rotate(-45deg);
+    background: whitesmoke;
 }
 
 /* Menu Overlay */
 .menu-overlay {
     position: fixed;
-    top: 0;
+    top: 65px;
     left: 0;
     width: 100%;
     height: 100vh;
@@ -332,7 +354,7 @@ header nav.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+   justify-content: start;
     
     /* Animation: Hidden by default */
     opacity: 0;
@@ -347,18 +369,10 @@ header nav.container {
     visibility: visible;
 }
 
-.menu-close {
-    position: absolute;
-    top: 0.9rem;
-    right: 1.5rem;
-    background: none;
-    border: none;
-    color: whitesmoke;
-    font-size: 4rem;
-    cursor: pointer;
-}
+
 
 .menu-content {
+    
     text-align: center;
 }
 
@@ -419,42 +433,119 @@ main {
     animation: fadeIn 1s ease-out;
 }
 
-.hero {
-    min-height: calc(70vh - var(--header-height));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    animation: fadeSlideUp 0.8s ease-out;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--color-text-light);
-    max-width: 600px;
-    margin: 1rem 0 2rem 0;
-    animation: fadeSlideUp 0.8s ease-out 0.2s;
-    animation-fill-mode: backwards; /* Start animation from invisible */
-}
-
-.hero .btn {
-    animation: fadeSlideUp 0.8s ease-out 0.4s;
-    animation-fill-mode: backwards;
-}
 
 .content-section {
-    padding: 4rem 2rem;
+    padding: 0.5rem 2rem;
+     padding-bottom: 2rem;
     text-align: center;
 }
 
+/* Corresponds to: flex items-center justify-center */
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Corresponds to: 
+  flex flex-col md:flex-row justify-center items-center gap-8 
+*/
+.closed-zines-buttons {
+margin-top:20px;
+  display: flex;
+  flex-direction: column; /* Default (flex-col) */
+  justify-content: center;
+  align-items: center;
+  gap: 2rem; /* 32px (gap-8) */
+}
+
+/* Corresponds to: 
+  flex flex-col items-center gap-2 text-lg font-semibold 
+  text-gray-700 hover:text-blue-600 transition-colors
+*/
+.zine-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* 8px (gap-2) */
+  font-size: 1.125rem; /* 18px (text-lg) */
+  line-height: 1.75rem;
+  font-weight: 600; /* font-semibold */
+  color: rgb(55, 65, 81); /* text-gray-700 */
+  text-decoration: none; /* Recommended for links */
+  transition-property: color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.zine-link:hover {
+  color: rgb(37, 99, 235); /* hover:text-blue-600 */
+}
+
+/* Corresponds to: 
+  w-70 h-70 border-2 border-green-500 rounded-md object-cover
+  
+  Note: w-70/h-70 are not standard Tailwind. 
+  Assuming 70 * 0.25rem = 17.5rem (280px).
+  Your HTML comment mentioned w-40/h-40 (160px), 
+  but the class used was w-70/h-70. This code reflects the class.
+*/
+.zine-thumbnail {
+  width: 17.5rem; /* 280px (w-70) */
+  height: 17.5rem; /* 280px (h-70) */
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(34, 197, 94); /* border-green-500 */
+  border-radius: 0.375rem; /* 6px (rounded-md) */
+  object-fit: cover;
+}
+
+/* Corresponds to: md:flex-row */
+@media (min-width: 768px) {
+  .closed-zines-buttons {
+    flex-direction: row;
+  }
+  .menu-newsletter {
+    display:none;;
+  }
+}
+
+/* --- This is the CSS you need --- */
+
+/* This targets screens 768px and wider (tablets/desktops) */
+@media (min-width: 768px) {
+  
+  /* 1. Turn the parent into a flex container */
+  .responsive-layout {
+    display: flex;
+    justify-content: space-between; /* Optional: adds space between columns */
+    align-items: flex-start;      /* Optional: aligns columns to the top */
+    gap: 20px;                    /* Optional: adds a 20px gap between columns */
+  }
+
+  /* 2. Make each child column flexible */
+  .latest-column,
+  .flex-container {
+    flex: 1; /* This makes each column take up 50% of the space */
+    /* You could also use "flex-basis: 50%;" */
+  }
+}
+
+/* --- Optional bonus styling to make it look neater --- */
+.latest-column,
+.flex-container {
+  /* Adds a border and padding so you can see the boxes */
+ 
+  padding: 16px;
+  border-radius: 8px;
+  box-sizing: border-box; /* Ensures padding doesn't break the layout */
+}
+
+/* Fixes your image widths to be responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
 /* ==================
    7. FOOTER
    ================== */
@@ -499,7 +590,7 @@ footer {
     flex-grow: 1;
     padding: 0.75rem;
    
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.8);
     border: 2px solid #ccc;
     color: var(--color-secondary);
     border-radius: 5px 0 0 5px;
