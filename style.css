@@ -20,12 +20,14 @@
 html {
     scroll-behavior: smooth;
     font-size: 100%;
-     overflow-x: hidden;
+     overflow-x: hidden !important;
+    width: 100%;
 }
 
 body {
-      overflow-x: hidden;
+      overflow-x: hidden !important;
 width: 100%;
+    width: 100vw;
    position: relative;
     font-family: var(--font-family);
     
