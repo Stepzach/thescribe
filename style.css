@@ -1,10 +1,10 @@
 :root {
-    --color-primary: #c586b3;
+    --color-primary: #c586b3; 
     --color-secondary: #5d995d;
-    --color-background: #fcfdf7;
-    --color-text: #333333;
+    --color-background: #f9fbef;
+    --color-text: #334e59;
     --color-text-light: #777777;
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-family: 'Snowman House', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --container-width: 1140px;
     --header-height: 65px;
     --transition-fast: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -20,16 +20,23 @@
 html {
     scroll-behavior: smooth;
     font-size: 100%;
+    
 }
 
 body {
     font-family: var(--font-family);
+    
     line-height: 1.6;
-    background: var(--color-background);
+    background: 
+        var(--color-background) 
+        radial-gradient(circle, #d6eef6 1px, transparent 4px);
+    background-size: 20px 20px; /* distance between dots */
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+   
 }
+
 
 a {
     text-decoration: none;
@@ -66,7 +73,7 @@ img {
     border: none;
     border-radius: 8px;
     font-family: var(--font-family);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: 700;
     cursor: pointer;
     transition: all var(--transition-fast);
@@ -150,15 +157,40 @@ img {
    ================== */
 header {
     height: var(--header-height);
+    width:100%;
+      
     background: #4d8498;
-    border-bottom: solid 2px #ccc;
     display: flex;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 100;
-    animation: fadeIn 1s ease-out;
+   animation: slideDownFadeIn 0.5s ease-out forwards;
+    position: fixed;
+    border-bottom: none;
+    
 }
+@keyframes slideDownFadeIn {
+  0% {
+    opacity: 1;
+    transform: translateY(-100px); /* starts 50px above */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* ends in original position */
+  }
+}
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px; /* moves it BELOW the header */
+    width: 100%;
+    height: 14px;
+
+   
+}
+
 
 header nav.container {
     display: flex;
@@ -182,7 +214,23 @@ header nav.container {
 
 .nav-desktop {
     display: block;
+    
 }
+
+.squiggle-wrapper {
+position:absolute;
+top:60px;
+right:-2px;
+  width: calc(100% + 6px);
+  height: 30px;   /* adjust line height */
+  overflow: hidden;
+}
+
+#squiggle {
+  width: 100%;
+  height: 100%;
+}
+
 
 /* ==================
    5. MOBILE MENU
@@ -296,16 +344,27 @@ header nav.container {
     padding: 0.75rem;
     border-radius: 5px;
     font-family: var(--font-family);
+      font-size:1rem;
 }
 .menu-newsletter input::placeholder {
-    color: #ccc;
+    color: #334e59;
+   font-size:1rem;
+}
+
+.footer-newsletter input::placeholder {
+    color: #334e59;
+   font-size:1rem;
+}
+
+.footer-newsletter input {
+      font-size:1rem;
 }
 
 /* ==================
    6. MAIN CONTENT
    ================== */
 main {
-    animation: fadeIn 1s ease-out;
+    margin-top:70px;
 }
 
 .content-section {
@@ -360,6 +419,12 @@ main {
    w-70 h-70 border-2 border-green-500 rounded-md object-cover
    Assuming 70 * 0.25rem = 17.5rem (280px).
 */
+.latest-column h2 {
+        font-size:30px;
+        color:#2e4e5b;
+        
+    }
+    
 .zine-thumbnail {
     width: 17.5rem; /* 280px (w-70) */
     height: 17.5rem; /* 280px (h-70) */
@@ -397,7 +462,13 @@ main {
     .flex-container {
         flex: 1; /* This makes each column take up 50% of the space */
     }
+    .latest-column h2 {
+        font-size:35px;
+        color:#2e4e5b;
+        
+    }
 }
+
 
 /* --- Optional bonus styling to make it look neater --- */
 .latest-column,
@@ -420,7 +491,7 @@ footer {
     background: var(--color-secondary);
     color: white;
     padding: 4rem 0 2rem 0;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 }
 
 .footer-grid {
@@ -433,7 +504,7 @@ footer {
 .footer-social h4,
 .footer-newsletter h4 {
     color: white;
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
@@ -444,7 +515,7 @@ footer {
 
 .footer-social a {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-right: 1.25rem;
 }
 
@@ -472,7 +543,7 @@ footer {
     margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1.5px solid #ccc;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 /* ==================
@@ -512,4 +583,9 @@ footer {
         max-width: 400px;
         margin: 0 auto;
     }
+    
+    .flex-container {
+        display: none;
+    }
+    
 }
