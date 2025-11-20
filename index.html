@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Scribe</title>
-    
+     <link href="https://fonts.cdnfonts.com/css/snowman-house" rel="stylesheet">
     <meta name="description" content="A simple, minimal, and animated website template.">
     <meta name="keywords" content="website, template, minimal, simple, animated">
     <meta name="author" content="Your Name">
@@ -51,8 +51,79 @@
                 <span class="bar"></span>
             </button>
         </nav>
-    </header>
+        <div class="squiggle-wrapper">
+  <svg id="squiggle" preserveAspectRatio="none"></svg>
+</div>
 
+<div class="squiggle-wrapper">
+  <svg id="squiggle" preserveAspectRatio="none"></svg>
+</div>
+
+<script>
+function generateHanddrawnPath(width, height = 30, segments = 10) {
+  const points = [];
+  for (let i = 0; i <= segments; i++) {
+    const x = (i / segments) * width;
+    const y = height/2 + (Math.random() - 0.5) * (height * 0.5);
+    points.push({ x, y });
+  }
+
+  // Start path at top-left corner
+  let d = `M-10,-4 L${points[0].x},${points[0].y}`;
+
+  // Draw smooth curves through points
+  for (let i = 1; i < points.length; i++) {
+    const p0 = points[i - 1];
+    const p1 = points[i];
+    const cpX = (p0.x + p1.x) / 2;
+    d += ` Q${cpX},${p0.y} ${p1.x},${p1.y}`;
+  }
+
+  // Close path to top-right then back to top-left
+  d += ` L${width},-7 Z`;
+
+  return d;
+}
+
+function drawSquiggle() {
+  const svg = document.getElementById("squiggle");
+  const width = svg.clientWidth;
+  const height = svg.clientHeight;
+
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("d", generateHanddrawnPath(width, height));
+  path.setAttribute("fill", "#4d8498");   // fill color above the line
+  path.setAttribute("stroke", "#32505c");    // line color
+  path.setAttribute("stroke-width", "5");
+
+  svg.innerHTML = "";      // Clear old
+  svg.appendChild(path);   // Draw new
+}
+
+window.addEventListener("load", drawSquiggle);
+window.addEventListener("resize", drawSquiggle);
+</script>
+
+
+    </header>
+<div class="starthing" style="position: absolute; width:200px; left:-120px; opacity:0.6;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/Image%204-modified.png?raw=true">
+</div>
+<div class="starthing" style="position: absolute; width:100px; top:300px; left:-30px; opacity:0.6;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/227-2274609_computer-icons-photoscape-clip-pink-star-outline-png-modified.png?raw=true">
+</div>
+<div class="starthing" style="position: absolute; width:130px; top:300px; right:-50px; opacity:0.6;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/Image%204-modified.png?raw=true">
+</div>
+<div class="starthing" style="position: absolute; width:120px; top:100px; right:-70px; opacity:0.6;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/Image%204-modified.png?raw=true">
+</div>
+<div class="starthing" style="position: absolute; width:200px; top:450px; right:-120px; opacity:0.6;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/227-2274609_computer-icons-photoscape-clip-pink-star-outline-png-modified.png?raw=true">
+</div>
+<div class="starthing" style="position: absolute; width:130px; top:440px; left:-50px; opacity:0.6;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/Image%204-modified.png?raw=true">
+</div>
     <div class="menu-overlay" id="mobile-menu">
         <div class="menu-content">
             <nav>
@@ -69,11 +140,11 @@
         <section class="container content-section">
             <div class="responsive-layout">
                 <div class="latest-column">
-                    <h2>Latest:</h2>
+                    <h2 style="                                                                    font-family: 'Snowman House', sans-serif;">Latest zine:</h2>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL2kzuUAlBvlMgDWwO6Kq_J9E8zzw_GWcq2A&s" class="latest-zine-img" alt="Latest zine cover">
                     <p>October 2025 Zine. <a href="#" class="pdf-link">View PDF</a></p>
                     <div class="menu-newsletter">
-                        <h3>Get monthly zines straight to your inbox:</h3>
+                        <h3 style="font-size:1.6rem; line-height:1.3rem;">Get monthly zines <br>straight to your inbox:</h3>
                         <form>
                             <input type="email" placeholder="Enter your email" required>
                             <button type="submit" class="btn btn-secondary">Join Newsletter</button>
@@ -83,15 +154,15 @@
 
                 <div class="flex-container">
                     <div class="closed-zines-buttons">
-                        <a href="#" aria-label="Archives" class="zine-link">
+                        <a href="#" aria-label="Archives" class="zine-link" style="font-size:1.3rem;">
                             Archives:
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQQ3zlBsmKgFY4yF8iUErFOxrLFn4Bpc9R3mI_zOPBVSDgfcah_FUdFk4ezBtPKaBa1cQ&usqp=CAU" 
+                            <img src="https://unblast.com/wp-content/uploads/2023/06/Two-Magazines-on-Table-Mockup-3.jpg" 
                                  alt="Archives thumbnail" 
                                  class="zine-thumbnail">
                         </a>
-                        <a href="#" aria-label="About" class="zine-link">
+                        <a href="#" aria-label="About" class="zine-link" style="font-size:1.3rem;">
                             About: 
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQQ3zlBsmKgFY4yF8iUErFOxrLFn4Bpc9R3mI_zOPBVSDgfcah_FUdFk4ezBtPKaBa1cQ&usqp=CAU" 
+                            <img src="https://unblast.com/wp-content/uploads/2023/06/Two-Magazines-on-Table-Mockup-3.jpg" 
                                  alt="About thumbnail" 
                                  class="zine-thumbnail">
                         </a>
@@ -105,7 +176,7 @@
         <div class="container footer-grid">
             <div class="footer-about">
                 <h4>About Us</h4>
-                <p>We are a minimal design studio creating beautiful and simple digital experiences. Welcome to our space.</p>
+                <p style="line-height:1.3rem;">We are a minimal design studio creating beautiful and simple digital experiences. Welcome to our space.</p>
             </div>
 
             <div class="footer-social">
