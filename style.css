@@ -368,6 +368,7 @@ right:-2px;
    ================== */
 main {
     margin-top:70px;
+    overflow-x: hidden;
 }
 
 .content-section {
