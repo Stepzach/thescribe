@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Scribe</title>
+     <link href="https://fonts.cdnfonts.com/css/snowman-house" rel="stylesheet">
+    <meta name="description" content="A simple, minimal, and animated website template.">
+    <meta name="keywords" content="website, template, minimal, simple, animated">
+    <meta name="author" content="Your Name">
+    <meta name="theme-color" content="#4d8498">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourwebsite.com/">
+    <meta property="og:title" content="Minimalist Website">
+    <meta property="og:description" content="A simple, minimal, and animated website template.">
+    <meta property="og:image" content="https://www.yourwebsite.com/image.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.yourwebsite.com/">
+    <meta property="twitter:title" content="Minimalist Website">
+    <meta property="twitter:description" content="A simple, minimal, and animated website template.">
+    <meta property="twitter:image" content="https://www.yourwebsite.com/image.jpg">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+    
+    <link rel="stylesheet" href="/thescribe/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <img src="https://github.com/Stepzach/thescribe/blob/main/IMG_3996.PNG?raw=true" alt="The Scribe Logo">
+            </a>
+            
+            <div class="nav-desktop">
+                <button class="btn btn-nav">Archive</button>
+                <button class="btn btn-nav">About</button>
+                <button class="btn btn-primary">Join our Newsletter</button>
+            </div>
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+        <div class="squiggle-wrapper">
+  <svg id="squiggle" preserveAspectRatio="none"></svg>
+</div>
+
+<div class="squiggle-wrapper">
+  <svg id="squiggle" preserveAspectRatio="none"></svg>
+</div>
+
+<script>
+function generateHanddrawnPath(width, height = 30, segments = 10) {
+  const points = [];
+  for (let i = 0; i <= segments; i++) {
+    const x = (i / segments) * width;
+    const y = height/2 + (Math.random() - 0.5) * (height * 0.5);
+    points.push({ x, y });
+  }
+
+  // Start path at top-left corner
+  let d = `M-10,-4 L${points[0].x},${points[0].y}`;
+
+  // Draw smooth curves through points
+  for (let i = 1; i < points.length; i++) {
+    const p0 = points[i - 1];
+    const p1 = points[i];
+    const cpX = (p0.x + p1.x) / 2;
+    d += ` Q${cpX},${p0.y} ${p1.x},${p1.y}`;
+  }
+
+  // Close path to top-right then back to top-left
+  d += ` L${width},-7 Z`;
+
+  return d;
+}
+
+function drawSquiggle() {
+  const svg = document.getElementById("squiggle");
+  const width = svg.clientWidth;
+  const height = svg.clientHeight;
+
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("d", generateHanddrawnPath(width, height));
+  path.setAttribute("fill", "#4d8498");   // fill color above the line
+  path.setAttribute("stroke", "#32505c");    // line color
+  path.setAttribute("stroke-width", "5");
+
+  svg.innerHTML = "";      // Clear old
+  svg.appendChild(path);   // Draw new
+}
+
+window.addEventListener("load", drawSquiggle);
+window.addEventListener("resize", drawSquiggle);
+</script>
+
+
+    </header>
+     <div style="width:100vw !important">
+<div class="starthing" style="position: absolute; width:200px; left:-120px; opacity:0.6; overflow:hidden;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/Image%204-modified.png?raw=true">
+</div>
+<div class="starthing" style="position: absolute; width:100px; top:300px; left:-30px; opacity:0.6; overflow:hidden;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/227-2274609_computer-icons-photoscape-clip-pink-star-outline-png-modified.png?raw=true">
+</div>
+<div class="starthing" style="position: absolute; width:130px; top:300px; right:-50px; opacity:0.6; overflow:hidden;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/Image%204-modified.png?raw=true">
+</div>
+<div class="starthing" style="position: absolute; width:120px; top:100px; right:-70px; opacity:0.6; overflow:hidden;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/Image%204-modified.png?raw=true">
+</div>
+<div class="starthing" style="position: absolute; width:200px; top:450px; right:-120px; opacity:0.6; overflow:hidden;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/227-2274609_computer-icons-photoscape-clip-pink-star-outline-png-modified.png?raw=true">
+</div>
+<div class="starthing" style="position: absolute; width:130px; top:440px; left:-50px; opacity:0.6; overflow:hidden;">
+<img src="https://github.com/Stepzach/thescribe/blob/main/Image%204-modified.png?raw=true">
+</div></div>
+    <div class="menu-overlay" id="mobile-menu">
+        <div class="menu-content">
+            <nav>
+                <ul>
+                    <li><a href="#"><u>Home</u></a></li>
+                    <li><a href="#">Archives</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <section class="container content-section">
+            <div class="responsive-layout">
+                <div class="latest-column">   
+                    <h2 style="                                                                     font-family: 'MagazineLetter', sans-serif;">Latest zine:</h2>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL2kzuUAlBvlMgDWwO6Kq_J9E8zzw_GWcq2A&s" class="latest-zine-img" alt="Latest zine cover">
+                    <p>October 2025 Zine. <a href="#" class="pdf-link">View PDF</a></p>
+                    <div class="menu-newsletter">
+                        <h3 style="font-size:1.6rem; line-height:1.3rem;">Get monthly zines <br>straight to your inbox:</h3>
+                        <form>
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-secondary">Join Newsletter</button>
+                        </form>
+                    </div>
+                </div>
+              
+
+                <div class="flex-container">
+                    <div class="closed-zines-buttons">
+                        <a href="#" aria-label="Archives" class="zine-link" style="font-size:1.3rem;">
+                            Archives:
+                            <img src="https://unblast.com/wp-content/uploads/2023/06/Two-Magazines-on-Table-Mockup-3.jpg" 
+                                 alt="Archives thumbnail" 
+                                 class="zine-thumbnail">
+                        </a>
+                        <a href="#" aria-label="About" class="zine-link" style="font-size:1.3rem;">
+                            About: 
+                            <img src="https://unblast.com/wp-content/uploads/2023/06/Two-Magazines-on-Table-Mockup-3.jpg" 
+                                 alt="About thumbnail" 
+                                 class="zine-thumbnail">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <h4>About Us</h4>
+                <p style="line-height:1.3rem;">We are a minimal design studio creating beautiful and simple digital experiences. Welcome to our space.</p>
+            </div>
+
+            <div class="footer-social">
+                <h4>Socials</h4>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="mailto:hello@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Join the List</h4>
+                <form>
+                    <input type="email" placeholder="your.email@example.com" required>
+                    <button type="submit" class="btn btn-secondary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-copyright">
+            <p>&copy; 2025 Minimal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/thescribe/script.js"></script>
+</body>
+</html>
+<style>
+:root {
+    --color-primary: #c586b3; 
+    --color-secondary: #5d995d;
+    --color-background: #f9fbef;
+    --color-text: #334e59;
+    --color-text-light: #777777;
+    --font-family: 'Snowman House', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --container-width: 1140px;
+    --header-height: 65px;
+    --transition-fast: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-menu: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@font-face {
+  font-family: 'MagazineLetter';
+  src: url('https://github.com/Stepzach/thescribe/blob/main/MagazineLetterByBrntlbrnl-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+     overflow-x: hidden !important;
+    width: 100%;
+}
+
+body {
+      overflow-x: hidden !important;
+width: 100%;
+    width: 100vw;
+   position: relative;
+    font-family: var(--font-family);
+    
+    line-height: 1.6;
+    background: 
+        var(--color-background) 
+        radial-gradient(circle, #d6eef6 1px, transparent 4px);
+    background-size: 20px 20px; /* distance between dots */
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+   
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity var(--transition-fast);
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ==================
+   2. UTILITY CLASSES
+   ================== */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-family);
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+}
+
+.btn-primary {
+    background: #5d995d;
+    color: white;
+    border: solid 2px #ccc;
+}
+
+.btn-primary:hover {
+    opacity: 0.8;
+}
+
+.btn-secondary {
+    background: var(--color-secondary);
+    color: white;
+    border: solid 2px #ccc;
+}
+
+.btn-secondary:hover {
+    opacity: 0.8;
+}
+
+/* Styles moved from inline HTML */
+.btn-nav {
+    background: transparent;
+    color: white;
+}
+
+.nav-desktop .btn-nav:first-of-type {
+    padding-right: 5px;
+}
+
+.latest-zine-img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.pdf-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* ==================
+   3. ANIMATIONS
+   ================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================
+   4. HEADER
+   ================== */
+header {
+    height: var(--header-height);
+    width:100%;
+      
+    background: #4d8498;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+   animation: slideDownFadeIn 0.5s ease-out forwards;
+    position: fixed;
+    border-bottom: none;
+    
+}
+@keyframes slideDownFadeIn {
+  0% {
+    opacity: 1;
+    transform: translateY(-100px); /* starts 50px above */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* ends in original position */
+  }
+}
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px; /* moves it BELOW the header */
+    width: 100%;
+    height: 14px;
+
+   
+}
+
+
+header nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: whitesmoke;
+}
+
+/* Style moved from inline HTML */
+.logo img {
+    height: 60px;
+    width: 110px;
+    object-fit: cover;
+    object-position: left;
+}
+
+.nav-desktop {
+    display: block;
+    
+}
+
+.squiggle-wrapper {
+position:absolute;
+top:60px;
+right:-2px;
+  width: calc(100% + 6px);
+  height: 30px;   /* adjust line height */
+  overflow: hidden;
+}
+
+#squiggle {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ==================
+   5. MOBILE MENU
+   ================== */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 35px;
+    height: 5px;
+    background: #2c4a56;
+    border-radius: 4px;
+    margin: 5px 0;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Hamburger to 'X' animation */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+    background: whitesmoke;
+}
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+    background: whitesmoke;
+}
+
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-primary);
+    color: white;
+    z-index: 10;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    
+    /* Animation: Hidden by default */
+    opacity: 0;
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: all var(--transition-menu);
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.menu-content {
+    text-align: center;
+}
+
+.menu-content nav ul li {
+    margin: 2rem 0;
+    opacity: 0; /* For staggered animation */
+    animation: menuFadeIn 0.5s ease-out forwards;
+}
+
+/* Staggered animation delay */
+.menu-overlay.active .menu-content nav ul li:nth-child(1) { animation-delay: 0.3s; }
+.menu-overlay.active .menu-content nav ul li:nth-child(2) { animation-delay: 0.5s; }
+.menu-overlay.active .menu-content nav ul li:nth-child(3) { animation-delay: 0.7s; }
+
+.menu-content nav a {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: white;
+}
+
+.menu-newsletter {
+    margin-top: 4rem;
+    opacity: 0; /* For animation */
+    animation: menuFadeIn 0.5s ease-out forwards;
+}
+
+.menu-overlay.active .menu-newsletter {
+    animation-delay: 0.9s;
+}
+
+.menu-newsletter h3 {
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.menu-newsletter form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.menu-newsletter input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ccc;
+    color: var(--color-secondary);
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-family: var(--font-family);
+      font-size:1rem;
+}
+.menu-newsletter input::placeholder {
+    color: #334e59;
+   font-size:1rem;
+}
+
+.footer-newsletter input::placeholder {
+    color: #334e59;
+   font-size:1rem;
+}
+
+.footer-newsletter input {
+      font-size:1rem;
+}
+
+/* ==================
+   6. MAIN CONTENT
+   ================== */
+main {
+    margin-top:70px;
+    overflow-x: hidden;
+}
+
+.content-section {
+    padding: 0.5rem 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+/* Corresponds to: flex items-center justify-center */
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Corresponds to: 
+   flex flex-col md:flex-row justify-center items-center gap-8 
+*/
+.closed-zines-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Default (flex-col) */
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* 32px (gap-8) */
+}
+
+/* Corresponds to: 
+   flex flex-col items-center gap-2 text-lg font-semibold 
+   text-gray-700 hover:text-blue-600 transition-colors
+*/
+.zine-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem; /* 8px (gap-2) */
+    font-size: 1.125rem; /* 18px (text-lg) */
+    line-height: 1.75rem;
+    font-weight: 600; /* font-semibold */
+    color: rgb(55, 65, 81); /* text-gray-700 */
+    text-decoration: none; /* Recommended for links */
+    transition-property: color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.zine-link:hover {
+    color: rgb(37, 99, 235); /* hover:text-blue-600 */
+}
+
+/* Corresponds to: 
+   w-70 h-70 border-2 border-green-500 rounded-md object-cover
+   Assuming 70 * 0.25rem = 17.5rem (280px).
+*/
+.latest-column h2 {
+        font-size:30px;
+        color:#2e4e5b;
+        
+    }
+    
+.zine-thumbnail {
+    width: 17.5rem; /* 280px (w-70) */
+    height: 17.5rem; /* 280px (h-70) */
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(34, 197, 94); /* border-green-500 */
+    border-radius: 0.375rem; /* 6px (rounded-md) */
+    object-fit: cover;
+}
+
+/* Corresponds to: md:flex-row */
+@media (min-width: 768px) {
+    .closed-zines-buttons {
+        flex-direction: row;
+    }
+    .menu-newsletter {
+        display: none;
+    }
+}
+
+/* --- This is the CSS you need --- */
+
+/* This targets screens 768px and wider (tablets/desktops) */
+@media (min-width: 768px) {
+    /* 1. Turn the parent into a flex container */
+    .responsive-layout {
+        display: flex;
+        justify-content: space-between; /* Optional: adds space between columns */
+        align-items: flex-start;      /* Optional: aligns columns to the top */
+        gap: 20px;                    /* Optional: adds a 20px gap between columns */
+    }
+
+    /* 2. Make each child column flexible */
+    .latest-column,
+    .flex-container {
+        flex: 1; /* This makes each column take up 50% of the space */
+    }
+    .latest-column h2 {
+        font-size:35px;
+        color:#2e4e5b;
+        
+    }
+}
+
+
+/* --- Optional bonus styling to make it look neater --- */
+.latest-column,
+.flex-container {
+    padding: 16px;
+    border-radius: 8px;
+    box-sizing: border-box; /* Ensures padding doesn't break the layout */
+}
+
+/* Fixes your image widths to be responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==================
+   7. FOOTER
+   ================== */
+footer {
+    background: var(--color-secondary);
+    color: white;
+    padding: 4rem 0 2rem 0;
+    font-size: 1.2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: 3rem;
+}
+
+.footer-about h4,
+.footer-social h4,
+.footer-newsletter h4 {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-about p {
+    max-width: 350px;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 1.7rem;
+    margin-right: 1.25rem;
+}
+
+.footer-newsletter form {
+    display: flex;
+}
+
+.footer-newsletter input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #ccc;
+    color: var(--color-secondary);
+    border-radius: 5px 0 0 5px;
+    font-family: var(--font-family);
+}
+
+.footer-newsletter button {
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1.5px solid #ccc;
+    font-size: 1rem;
+}
+
+/* ==================
+   8. RESPONSIVE (Mobile)
+   ================== */
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-about p {
+        margin: 0 auto;
+    }
+
+    .footer-social {
+        margin: 1.5rem 0;
+    }
+
+    .footer-newsletter form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .flex-container {
+        display: none;
+    }
+    
+}
+  </style>
