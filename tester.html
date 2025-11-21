@@ -141,10 +141,39 @@ window.addEventListener("resize", drawSquiggle);
     <main>
         <section class="container content-section">
             <div class="responsive-layout">
-                <div class="latest-column">   
-                    <h2 style="                                                                     font-family: 'MagazineLetter', sans-serif;">Latest zine:</h2>
+                <div class="latest-column">    
+                    <h2 class="h2blocks" style="                                                                      font-family: 'MagazineLetter', sans-serif; ">
+                    <span style="color:#956ead">L</span>
+                     <span style="color:green; margin-left:-8px;">a</span>
+                      <span style="margin-left:-8px;">t</span>
+                       <span style="color:#febd30; background: purple;margin-left:-8px;">e</span> 
+                        <span style="color:#dd393a; margin-left:-8px;">s</span>
+                         <span style="color:green; margin-left:-8px;">T</span>
+                          <span class="zinetextblock" style="color:#dd393a; margin-left:10px;"> 
+           
+                          <span style="color:#dd393a; background: #febd30; ">z</span>
+                         <span style="color:green; margin-left:-8px;">i</span>
+                          <span style="color:#956ead; margin-left:-8px;">N</span>
+                         <span style="color:#ab3357; margin-left:-8px;">e</span>
+               
+                         <span style=" margin-left:-8px;">:</span>
+                         </span>
+                         <div class="zinetext">
+                        
+                         <span class="" style="color:#dd393a; margin-left:10px;"> 
+           
+                          <span style="color:#dd393a; background: #febd30; ">z</span>
+                         <span style="color:green; margin-left:-8px;">i</span>
+                          <span style="color:#956ead; margin-left:-8px;">N</span>
+                         <span style="color:#ab3357; margin-left:-8px;">e</span>
+               
+                         <span style=" margin-left:-8px;">:</span>
+                         </span>
+                         </div>
+                       </h2>
+                       
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL2kzuUAlBvlMgDWwO6Kq_J9E8zzw_GWcq2A&s" class="latest-zine-img" alt="Latest zine cover">
-                    <p>October 2025 Zine. <a href="#" class="pdf-link">View PDF</a></p>
+                    <p style="font-size:1.3rem; line-height:1.3rem;  margin-top:15px; ">October 2025 Zine. <a href="#" class="pdf-link">View PDF</a></p>
                     <div class="menu-newsletter">
                         <h3 style="font-size:1.6rem; line-height:1.3rem;">Get monthly zines <br>straight to your inbox:</h3>
                         <form>
@@ -152,7 +181,7 @@ window.addEventListener("resize", drawSquiggle);
                             <button type="submit" class="btn btn-secondary">Join Newsletter</button>
                         </form>
                     </div>
-                </div>
+               </div>
               
 
                 <div class="flex-container">
@@ -174,7 +203,98 @@ window.addEventListener("resize", drawSquiggle);
             </div>
         </section>
     </main>
+<div class="footer-separator">
+  <svg id="footer-border-svg" preserveAspectRatio="none"></svg>
+</div>
+<style>
+.footer-separator {
+  /* This ensures the border spans the full width of its container */
+  width: 100%;
+  /* Set a defined height for the squiggle area */
+  height: 30px; 
+  /* Push it slightly above the footer if needed, or adjust spacing */
+  margin-bottom: -5px; 
+}
 
+#footer-border-svg {
+  /* Ensure the SVG fills the wrapper */
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform: scaleY(-1);
+}
+
+/* Optional: Style your footer section */
+footer {
+  background-color: #4d8498; /* Match the fill color of the squiggle to make it look connected */
+  padding: 20px;
+  color: white;
+}</style>
+<script>
+/**
+ * Generates a hand-drawn-like path for the SVG.
+ * @param {number} width - The width of the SVG viewport.
+ * @param {number} [height=30] - The max height of the wave amplitude.
+ * @param {number} [segments=10] - The number of points to define the curve.
+ * @returns {string} The SVG path data string ('d' attribute).
+ */
+function generateSquigglePath(width, height = 30, segments = 12) {
+  const points = [];
+  // Generate random points for the middle line
+  for (let i = 0; i <= segments; i++) {
+    const x = (i / segments) * width;
+    // Add random variation to the y-coordinate (0.5 * height is the max deviation)
+    const y = height / 2 + (Math.random() - 0.5) * (height * 0.5); 
+    points.push({ x, y });
+  }
+
+  // Start path slightly off-screen to the left, below the top edge
+  let d = `M-10,-5 L${points[0].x},${points[0].y}`;
+
+  // Draw smooth quadratic Bezier curves (Q) through the points
+  for (let i = 1; i < points.length; i++) {
+    const p0 = points[i - 1];
+    const p1 = points[i];
+    // The control point (cp) x-coordinate is midway between the two points
+    const cpX = (p0.x + p1.x) / 2;
+    // We use the previous point's y-coordinate for the control point, 
+    // creating a continuous wave effect
+    d += ` Q${cpX},${p0.y} ${p1.x},${p1.y}`;
+  }
+
+  // Close path: Line to the right edge (slightly off-screen), then back to the start
+  // This creates the filled area *above* the squiggle.
+  d += ` L${width + 10},-5 Z`;
+
+  return d;
+}
+
+/**
+ * Draws the squiggle path onto the SVG element.
+ */
+function drawFooterSquiggle() {
+  // Use the updated ID
+  const svg = document.getElementById("footer-border-svg");
+  if (!svg) return; // Exit if the element is not found
+
+  const width = svg.clientWidth;
+  const height = svg.clientHeight;
+
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("d", generateSquigglePath(width, height));
+  
+  // Color settings:
+  path.setAttribute("fill", "#5d995d");    // Fill color *above* the line (match footer background)
+  path.setAttribute("stroke", "#325432");   // Line color
+  path.setAttribute("stroke-width", "4"); // Thicker line
+
+  svg.innerHTML = "";       // Clear existing path
+  svg.appendChild(path);    // Append the new path
+}
+
+// Draw the squiggle on page load and window resize
+window.addEventListener("load", drawFooterSquiggle);
+window.addEventListener("resize", drawFooterSquiggle);</script>
     <footer>
         <div class="container footer-grid">
             <div class="footer-about">
@@ -199,7 +319,7 @@ window.addEventListener("resize", drawSquiggle);
         </div>
         
         <div class="footer-copyright">
-            <p>&copy; 2025 Minimal. All rights reserved.</p>
+            <p>&copy; 2025 The Scribe. All rights reserved.</p>
         </div>
     </footer>
 
@@ -222,7 +342,7 @@ window.addEventListener("resize", drawSquiggle);
 
 @font-face {
   font-family: 'MagazineLetter';
-  src: url('https://github.com/Stepzach/thescribe/blob/main/MagazineLetterByBrntlbrnl-Regular.ttf') format('truetype');
+  src: url('https://raw.githubusercontent.com/Stepzach/thescribe/main/MagazineLetterByBrntlbrnl-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -711,10 +831,21 @@ img {
    7. FOOTER
    ================== */
 footer {
+    /* Base color fallback */
     background: var(--color-secondary);
     color: white;
     padding: 4rem 0 2rem 0;
     font-size: 1.2rem;
+
+    /* Gradient (on top) + texture (middle) + base color (bottom) */
+    background-image: 
+        linear-gradient(to top, #325432 0%, rgba(93,153,93,0) 10%),
+        linear-gradient(to bottom, #5d995d 0%, rgba(93,153,93,0) 10%),
+        url('https://static.vecteezy.com/system/resources/thumbnails/041/643/335/small/paper-wrinkled-and-crumped-texture-transparent-glued-poster-template-free-png.png');
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    
 }
 
 .footer-grid {
@@ -812,4 +943,31 @@ footer {
     }
     
 }
+
+@media (min-width: 470px) and (max-width: 768px) {
+.h2blocks {
+        font-size:2.5rem !important;
+    }
+     }
+ @media (min-width: 1000px) {
+.h2blocks {
+        font-size:2.8rem !important;
+    }
+     }
+     
+       @media (max-width: 388px) {
+.h2blocks {
+        font-size:2.3rem !important;
+    }
+    .zinetextblock {
+    display:none;
+     }
+      .zinetext {
+    margin-top:-10px;
+     }
+     }
+      @media (min-width: 389px) {
+   .zinetext {
+    display:none;
+     }} 
   </style>
