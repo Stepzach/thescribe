@@ -36,14 +36,14 @@
 
     <header>
         <nav class="container">
-            <a href="#" class="logo">
+            <a href="#" class="logo" onclick="window.location.href='https://stepzach.github.io/thescribe/tester'">
                 <img src="https://github.com/Stepzach/thescribe/blob/main/IMG_3996.PNG?raw=true" alt="The Scribe Logo">
             </a>
             
             <div class="nav-desktop" >
         
-                <button class="btn btn-nav" style="color: var(--color-text) !important; font-size:1.5rem;">ARCHIVE</button>
-                <button class="btn btn-nav" style="color: var(--color-text) !important; font-size:1.5rem;">ABOUT</button>
+                <button class="btn btn-nav" style="color: var(--color-text); font-size:1.5rem;" onclick="window.location.href='https://stepzach.github.io/thescribe/archive'">ARCHIVE</button>
+                <button class="btn btn-nav" style="color: var(--color-text); font-size:1.5rem;" onclick="window.location.href='https://stepzach.github.io/thescribe/about'">ABOUT</button>
                
             </div>
              
@@ -101,31 +101,25 @@ function drawSquiggle() {
   svg.innerHTML = "";      // Clear old
   svg.appendChild(path);   // Draw new
 }
-
+ 
 window.addEventListener("load", drawSquiggle);
 
-</script>
+</script> 
 
 
-    </header>
-     <div style="width:100vw !important">
-
-
-<div class="starthing" style="position: absolute; width:130px; top:440px; left:-50px; opacity:0.6; overflow:hidden;">
-<img src="https://github.com/Stepzach/thescribe/blob/main/Image%204-modified.png?raw=true">
-</div></div>
+    </header> 
+     
     <div class="menu-overlay" id="mobile-menu">
         <div class="menu-content">
             <nav>
                 <ul>
-                      <li><a href="#"><u>HOME</u></a></li>
-                    <li><a href="#">ARCHIVE</a></li>
-                    <li><a href="#">ABOUT</a></li>
+                      <li><a href="https://stepzach.github.io/thescribe/tester"><u>HOME</u></a></li>
+                    <li><a href="https://stepzach.github.io/thescribe/archive">ARCHIVE</a></li>
+                    <li><a href="https://stepzach.github.io/thescribe/about">ABOUT</a></li>
                 </ul>
             </nav>
         </div>
     </div>
-
     <main>
         <section class="container content-section">
             <div class="responsive-layout">
@@ -254,19 +248,19 @@ window.addEventListener("load", drawFooterSquiggle);
     <footer>
         <div class="container footer-grid">
             <div class="footer-about">
-                <h4>About Us</h4>
-                <p style="line-height:1.3rem;">We are a minimal design studio creating beautiful and simple digital experiences. Welcome to our space.</p>
+                <h4 style="line-height:1.6rem;">An intersectional zine for creative voices</h4>
+                <p style="line-height:1.3rem;">The Scribe is a society and student-led zine, we seek to give a voice to all creatives, irrespective of their experience.</p>
             </div>
 
             <div class="footer-social">
-                <h4>Socials</h4>
+                <h4 style="line-height:1.6rem;">Socials</h4>
                 <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                 <a href="mailto:hello@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
 
             <div class="footer-newsletter">
-                <h4>Join the List</h4>
+                <h4 style="line-height:1.6rem;">Join the List</h4>
                 <form>
                     <input type="email" placeholder="your.email@example.com" required>
                     <button type="submit" class="btn btn-secondary" style="color: #325432">Subscribe</button>
@@ -279,7 +273,7 @@ window.addEventListener("load", drawFooterSquiggle);
         </div>
     </footer>
 
-    <script src="/thescribe/script.js"></script>
+   
 </body>
 </html>
 <style>
@@ -839,18 +833,18 @@ footer {
 .footer-social h4,
 .footer-newsletter h4 {
     color: #325432;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
-
+ 
 .footer-about p {
     max-width: 350px;
 }
 
 .footer-social a {
     color: #325432;
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     margin-right: 1.25rem;
 }
 
@@ -861,8 +855,8 @@ footer {
 .footer-newsletter input {
     flex-grow: 1;
     padding: 0.75rem;
-    background: rgba(255, 255, 255, 0.8);
-    border: 2px solid #ccc;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid #325432;
     color: var(--color-secondary);
     border-radius: 5px 0 0 5px;
     font-family: var(--font-family);
@@ -871,13 +865,15 @@ footer {
 .footer-newsletter button {
     border-radius: 0 5px 5px 0;
     border-left: none;
+    border: solid 2px #325432;
+    border-left:none;
 }
 
 .footer-copyright {
     text-align: center;
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1.5px solid #ccc;
+    border-top: 1.5px solid #325432;
     font-size: 1rem;
 }
 
@@ -951,9 +947,15 @@ footer {
    .zinetext {
     display:none;
      }} 
+     
+     
+     
+     .btn-nav:hover {
+    text-decoration: underline !important; 
+     }
   </style>
   
-  
+   
 <script>
     document.addEventListener("DOMContentLoaded", () => {
     // Get all the necessary elements
