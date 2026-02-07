@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Zine Society</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><img src="https://github.com/Stepzach/thescribe/blob/main/IMG_3996.PNG?raw=true"></div> 
+        <ul class="nav-links">
+           
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <header id="latest" class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <span class="tag">Latest</span>
+                <h1 id="hero-title">Loading...</h1>
+                <p id="hero-desc">Fetching the latest ink...</p>
+                <div class="hero-meta">
+                    <span id="hero-issue">Issue #</span>
+                    <span id="hero-date">Date</span>
+                </div>
+                <a href="#" id="hero-link" class="btn primary-btn">Read Issue</a>
+            </div>
+            <div class="hero-image">
+                <img id="hero-img" src="" alt="Latest Zine Cover">
+            </div>
+        </div>
+    </header>
+
+    <section id="archive" class="archive-section">
+        <div class="container">
+   
+            <div class="filter-bar">
+                
+            </div>
+            
+            <div class="zine-grid" id="archive-grid">
+                </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                
+                <a href="mailto:" class="btn secondary-btn">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 The Scribe</p>
+    </footer>
+
+  
+</body>
+
+<style>
+/* --- Variables & Reset --- */
+:root {
+    --bg-color: #FFF9F2; /* Creamier, softer background */
+    --text-color: #2D2D2D;
+    --accent-color: #4d8498; /* Softer bubblegum pink */
+    --secondary-accent: #B08CFF; /* Bubbly purple */
+    --border-color: #334e59;
+    --font-head: 'Work Sans', sans-serif; /* Swapping to Sans for a rounder look */
+    --font-body: 'Work Sans', sans-serif;
+    --roundness: 50px; /* The "Bubbly" factor */
+    --card-roundness: 30px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.4; /* Tighter line height for compactness */
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* --- Layout Utilities --- */
+.container {
+    max-width: 1000px; /* Narrower container for compactness */
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 28px;
+    font-family: var(--font-head);
+    font-weight: 700;
+    border-radius: var(--roundness);
+    border: 3px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+    cursor: pointer;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 6px 0 var(--border-color);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 var(--border-color);
+    background-color: var(--secondary-accent);
+}
+
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 40px;
+    height: 70px;
+     
+    
+    
+}
+
+.navbar img {
+padding-top:40px;
+   width:140px;
+
+   object-fit:cover;
+}
+
+
+/* --- Hero Section --- */
+.hero {
+    padding: 40px 10px;
+}
+
+.hero .container {
+    background: white;
+    padding: 40px;
+    border-radius: var(--card-roundness);
+    border: 3px solid var(--border-color);
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 30px;
+    align-items: center;
+    box-shadow: 12px 12px 0px rgba(0,0,0,0.05);
+}
+
+.tag {
+    background-color: var(--secondary-accent);
+    color: white;
+    padding: 4px 15px;
+    font-weight: 700;
+    border-radius: var(--roundness);
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    letter-spacing: -1.5px;
+}
+
+.hero-meta {
+    margin: 10px 0 20px 0;
+    font-weight: 600;
+    color: #888;
+}
+
+.hero-image img {
+    border-radius: var(--card-roundness);
+    border: 3px solid var(--border-color);
+    box-shadow: 8px 8px 0px var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+/* --- Archive Grid --- */
+.archive-section {
+    padding: 10px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    padding: 5px 20px;
+    background: white;
+    border: 3px solid var(--border-color);
+    border-radius: var(--roundness);
+    display: inline-block;
+}
+
+.zine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.zine-card {
+    background: white;
+    border: 3px solid var(--border-color);
+    padding: 20px;
+    border-radius: var(--card-roundness);
+    transition: all 0.3s ease;
+}
+
+.zine-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.zine-cover {
+ aspect-ratio: 6/4;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    filter: none; /* Removed grayscale for a friendlier look */
+}
+
+.zine-info h3 {
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.card-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--secondary-accent);
+}
+
+/* --- About & Footer --- */
+.about-section {
+   
+    color: black;
+    padding: 60px 0;
+    text-align: center;
+    border-radius: 60px 60px 0 0; /* Bubbly top edge */
+}
+
+footer {
+   
+    color: black;
+    text-align: center;
+    padding: 20px;
+    font-weight: 600;
+}
+
+
+
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero .container {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+    .hero-text h1 { font-size: 2.2rem; }
+}
+
+@media (min-width: 769px) {
+.navbar {
+height: 100px;
+}
+.navbar img {
+padding-top:40px;
+   width:200px;
+
+   object-fit:cover;
+}
+}
+</style>
+<script>
+// 1. THE DATA
+// Add new zines to the TOP of this list.
+const zineDatabase = [
+    {
+        id: 5,
+        title: "Digital Decay",
+        issue: "Vol. 5",
+        date: "Feb 2024",
+        desc: "Exploring the rot of the internet and nature reclaiming brutalist architecture.",
+        image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop", 
+        link: "#" // Link to PDF or reader
+    },
+    {
+        id: 4,
+        title: "Campus Ghosts",
+        issue: "Vol. 4",
+        date: "Dec 2023",
+        desc: "Stories from the haunted library basement and exams that never ended.",
+        image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1000&auto=format&fit=crop",
+        link: "#"
+    },
+    {
+        id: 3,
+        title: "Cheap Coffee",
+        issue: "Vol. 3",
+        date: "Oct 2023",
+        desc: "A review of every vending machine on campus.",
+        image: "https://images.unsplash.com/photo-1515549832467-8783363e19b6?q=80&w=1000&auto=format&fit=crop",
+        link: "#"
+    },
+    {
+        id: 2,
+        title: "Freshman Blues",
+        issue: "Vol. 2",
+        date: "Sep 2023",
+        desc: "Orientation week horror stories.",
+        image: "https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=1000&auto=format&fit=crop",
+        link: "#"
+    },
+    {
+        id: 1,
+        title: "Manifesto",
+        issue: "Vol. 1",
+        date: "May 2023",
+        desc: "Our very first issue. Rough, raw, and ready.",
+        image: "https://images.unsplash.com/photo-1621360841012-3f8d752f95b5?q=80&w=1000&auto=format&fit=crop",
+        link: "#"
+    }
+];
+
+// 2. RENDER FUNCTIONS
+
+// Function to load the most recent zine (Index 0)
+function loadLatest() {
+    const latest = zineDatabase[0];
+    
+    document.getElementById('hero-title').innerText = latest.title;
+    document.getElementById('hero-desc').innerText = latest.desc;
+    document.getElementById('hero-issue').innerText = latest.issue;
+    document.getElementById('hero-date').innerText = latest.date;
+    document.getElementById('hero-img').src = latest.image;
+    document.getElementById('hero-link').href = latest.link;
+}
+
+// Function to load the archive (Index 1 to End)
+function loadArchive() {
+    const grid = document.getElementById('archive-grid');
+    
+    // Slice the array to skip the first one (since it's in the hero)
+    const archiveZines = zineDatabase.slice(1);
+
+    archiveZines.forEach(zine => {
+        const card = document.createElement('article');
+        card.classList.add('zine-card');
+
+        card.innerHTML = `
+            <a href="${zine.link}">
+                <img src="${zine.image}" alt="${zine.title}" class="zine-cover">
+                <div class="zine-info">
+                    <div class="zine-meta">
+                        <span>${zine.issue}</span>
+                        <span>${zine.date}</span>
+                    </div>
+                    <h3>${zine.title}</h3>
+                    <span class="card-link">Read Issue &rarr;</span>
+                </div>
+            </a>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+// 3. INITIALIZE
+document.addEventListener('DOMContentLoaded', () => {
+    loadLatest();
+    loadArchive();
+});
+</script>
+</html>
