@@ -47,15 +47,16 @@
             </div>
             
             <div class="zine-grid" id="archive-grid">
-                </div>
+                </div> 
         </div>
     </section>
 
     <section id="about" class="about-section">
         <div class="container">
             <div class="about-content">
+                <h2 style="line-height:1.2; margin-bottom:10px;">get zines straight<br> to your inbox:</h2>
                 
-                <a href="mailto:" class="btn secondary-btn">Contact</a>
+                <a href="mailto:" class="btn secondary-btn">Join Newsletter</a>
             </div>
         </div>
     </section>
@@ -293,81 +294,67 @@ padding-top:40px;
 }
 </style>
 <script>
-// 1. THE DATA
-// Add new zines to the TOP of this list.
-const zineDatabase = [
-    {
-        id: 5,
-        title: "Digital Decay",
-        issue: "Vol. 5",
-        date: "Feb 2024",
-        desc: "Exploring the rot of the internet and nature reclaiming brutalist architecture.",
-        image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop", 
-        link: "#" // Link to PDF or reader
-    },
-    {
-        id: 4,
-        title: "Campus Ghosts",
-        issue: "Vol. 4",
-        date: "Dec 2023",
-        desc: "Stories from the haunted library basement and exams that never ended.",
-        image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1000&auto=format&fit=crop",
-        link: "#"
-    },
-    {
-        id: 3,
-        title: "Cheap Coffee",
-        issue: "Vol. 3",
-        date: "Oct 2023",
-        desc: "A review of every vending machine on campus.",
-        image: "https://images.unsplash.com/photo-1515549832467-8783363e19b6?q=80&w=1000&auto=format&fit=crop",
-        link: "#"
-    },
-    {
-        id: 2,
-        title: "Freshman Blues",
-        issue: "Vol. 2",
-        date: "Sep 2023",
-        desc: "Orientation week horror stories.",
-        image: "https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=1000&auto=format&fit=crop",
-        link: "#"
-    },
-    {
-        id: 1,
-        title: "Manifesto",
-        issue: "Vol. 1",
-        date: "May 2023",
-        desc: "Our very first issue. Rough, raw, and ready.",
-        image: "https://images.unsplash.com/photo-1621360841012-3f8d752f95b5?q=80&w=1000&auto=format&fit=crop",
-        link: "#"
+
+// 1. CONFIGURATION
+const SHEET_ID = '1E_Jt83Z129p1f1a6XA-PgJPJAML7hzkaVa845zThv_s'; 
+const SHEET_NAME = 'Sheet1'; 
+
+// FIX: We use the variable names inside the ${} blocks
+const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${SHEET_NAME}`;
+
+// 2. FETCH DATA FROM GOOGLE SHEETS
+async function fetchZines() {
+    try {
+        const response = await fetch(CSV_URL);
+        const data = await response.text();
+        
+        // Simple CSV parser (split by lines and commas)
+        const rows = data.split('\n').slice(1); // Skip header row
+        const zineDatabase = rows.map(row => {
+            // This regex handles commas inside quotes (like in descriptions)
+            const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+            if (!cols) return null;
+            
+            const clean = (str) => str.replace(/^"|"$/g, ''); // Remove surrounding quotes
+            
+            return {
+                title: clean(cols[0]),
+                issue: clean(cols[1]),
+                date: clean(cols[2]),
+                desc: clean(cols[3]),
+                image: clean(cols[4]),
+                link: clean(cols[5])
+            };
+        }).filter(item => item !== null);
+
+        renderSite(zineDatabase);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        document.getElementById('hero-title').innerText = "Oops! Connection failed.";
     }
-];
+}
 
-// 2. RENDER FUNCTIONS
+// 3. RENDER FUNCTIONS
+function renderSite(data) {
+    if (data.length === 0) return;
 
-// Function to load the most recent zine (Index 0)
-function loadLatest() {
-    const latest = zineDatabase[0];
-    
+    // Load Latest (First row)
+    const latest = data[0];
     document.getElementById('hero-title').innerText = latest.title;
     document.getElementById('hero-desc').innerText = latest.desc;
     document.getElementById('hero-issue').innerText = latest.issue;
     document.getElementById('hero-date').innerText = latest.date;
     document.getElementById('hero-img').src = latest.image;
     document.getElementById('hero-link').href = latest.link;
-}
 
-// Function to load the archive (Index 1 to End)
-function loadArchive() {
+    // Load Archive (Remaining rows)
     const grid = document.getElementById('archive-grid');
+    grid.innerHTML = ''; // Clear loading state
     
-    // Slice the array to skip the first one (since it's in the hero)
-    const archiveZines = zineDatabase.slice(1);
-
+    const archiveZines = data.slice(1);
     archiveZines.forEach(zine => {
         const card = document.createElement('article');
         card.classList.add('zine-card');
-
         card.innerHTML = `
             <a href="${zine.link}">
                 <img src="${zine.image}" alt="${zine.title}" class="zine-cover">
@@ -381,15 +368,11 @@ function loadArchive() {
                 </div>
             </a>
         `;
-        
         grid.appendChild(card);
     });
 }
 
-// 3. INITIALIZE
-document.addEventListener('DOMContentLoaded', () => {
-    loadLatest();
-    loadArchive();
-});
+// 4. INITIALIZE
+document.addEventListener('DOMContentLoaded', fetchZines);
 </script>
 </html>
